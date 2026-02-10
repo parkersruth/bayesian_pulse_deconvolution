@@ -1,0 +1,22 @@
+y:
+  - kind: time
+    metric: zp_rmse
+    name: Pulse interval RMSE
+    experiment: simulation_base
+    x:
+      # - method: F_nk_T_nk
+      #   name: Neurokit2 (SP)
+      - method: F_pyp_T_pyp.sp
+        name: PyPPG (SP)
+      - method: F_pyp_T_pyp.on
+        name: PyPPG (ON)
+      - method: F_pyp_T_pyp.u
+        name: PyPPG (U)
+      - method: F_pyp_T_pyp.a
+        name: PyPPG (A)
+      - method: F_ideal_T_pyp.u
+        name: Ideal Filter
+      # - method: F_nk_T_pyp.u
+      #   name: F_nk_T_pyp.u
+      - method: T_bpd
+        name: Bayesian PD

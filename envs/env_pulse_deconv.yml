@@ -1,0 +1,22 @@
+name: pulse_deconv
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.13
+  - jupyterlab
+  - ipywidgets
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - seaborn
+  - jax
+  - optax
+  - numpyro
+  - tqdm
+  - neurokit2
+  - bioconda::snakemake
+  - pip
+  - pip: 
+    - graphviz

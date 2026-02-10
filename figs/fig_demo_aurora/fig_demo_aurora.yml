@@ -1,0 +1,6 @@
+y:
+  - kind: time
+    experiment: aurora_demo
+    x:
+      - method: F_pyp_T_pyp.u
+      - method: T_bpd

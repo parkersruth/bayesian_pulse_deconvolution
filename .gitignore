@@ -1,0 +1,13 @@
+*.DS_Store
+*.ipynb_checkpoints
+*.virtual_documents
+__pycache__/
+*.snakemake
+*.vscode
+*.swp
+*.pkl
+*.csv
+!figs/fig5/rarker.csv
+
+experiments
+dfs

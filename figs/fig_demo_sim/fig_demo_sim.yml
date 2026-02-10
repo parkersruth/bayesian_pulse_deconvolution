@@ -1,0 +1,22 @@
+y:
+  - kind: filt
+    experiment: simulation_demo
+    x:
+      # - method: F_butter
+      # - method: F_cheby
+      # - method: F_nk
+      # - method: F_pyp
+      - method: F_bpd
+      # - method: F_ideal
+  # - kind: time
+  #   experiment: simulation_demo
+  #   x:
+  #     - method: F_nk_T_nk
+  #     - method: F_pyp_T_pyp.u
+  #     - method: T_bpd
+  # - kind: shape
+  #   experiment: simulation_demo
+  #   x:
+  #     - method: F_nk__F_nk_T_nk__S_avg
+  #     - method: F_pyp__F_pyp_T_pyp.u__S_avg
+  #     - method: S_bpd

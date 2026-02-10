@@ -1,0 +1,37 @@
+y:
+  - kind: filt
+    experiment: trends_base
+    metric: loss_db
+    name: Filter noise attenuation
+    # metric: error_db
+    # name: Filter error
+    ticks: [-60, -30, 0, 30]
+    labels: ['-60 dB', '-30 dB', '0 dB', '30 dB']
+    x:
+      - method: F_nk
+        name: Neurokit2
+      - method: F_bpd
+        name: Bayesian PD
+  - kind: time
+    metric: zp_rmse
+    name: Pulse interval RMSE
+    experiment: trends_base
+    ticks: [-3, -2, -1, 0]
+    labels: ['1 ms', '10 ms', '100 ms', '1 s']
+    log: True
+    x:
+      - method: F_pyp_T_pyp.u
+        name: PyPPG (U)
+      - method: T_bpd
+        name: Bayesian PD
+  - kind: shape
+    metric: h_errea
+    name: Pulse shape error
+    experiment: trends_base
+    ticks: [0, 0.5, 1]
+    labels: ['0 %', '50 %', '100 %']
+    x:
+      - method: F_pyp__F_pyp_T_pyp.u__S_avg
+        name: PyPPG (U)
+      - method: S_bpd
+        name: Bayesian PD

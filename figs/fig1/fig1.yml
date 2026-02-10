@@ -1,0 +1,16 @@
+y:
+  - kind: filt
+    metric: loss_db
+    name: Filter attenuation
+    experiment: simulation_base
+    x:
+      - method: F_butter
+        name: Butterworth
+      - method: F_cheby
+        name: Chebyshev
+      - method: F_nk
+        name: Neurokit2
+      - method: F_pyp
+        name: PyPPG
+      - method: F_bpd
+        name: Bayesian PD
