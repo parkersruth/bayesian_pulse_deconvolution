@@ -33,4 +33,5 @@ if __name__ == '__main__':
         all_metrics.append(metrics)
     
     df_metrics = pd.DataFrame(all_metrics)
+    df_metrics['exp'] = sm.params['dataset'] + '_' + sm.params['tag']
     df_metrics.to_csv(sm.output['metrics'], index=False)

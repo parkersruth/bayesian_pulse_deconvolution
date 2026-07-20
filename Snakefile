@@ -38,7 +38,7 @@ rule all:
         expand('figs/{fig}/{fig}_df.csv', fig=figs)
 
 rule fig_demo_sim:
-    input: 'figs/fig_demo_sim/fig_demo_sim_Df.csv'
+    input: 'figs/fig_demo_sim/fig_demo_sim_df.csv'
 rule fig_demo_aurora:
     input: 'figs/fig_demo_aurora/fig_demo_aurora.csv'
 rule fig1:
@@ -51,6 +51,8 @@ rule fig4:
     input: 'figs/fig4/fig4_df.csv'
 rule fig_trends:
     input: 'figs/fig_trends/fig_trends_df.csv'
+rule fig_ablations:
+    input: 'figs/fig_ablations/fig_ablations_df.csv'
     
 
 rule debug:
@@ -158,6 +160,53 @@ rule bayesian_pd:
         i = '{i}'
     script:
         'scripts/bayesian_pd.py'
+
+rule bayesian_pd_no_time:
+    input:
+        prior = '<out>/{DSET}/prior.pkl',
+        obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
+    output:
+        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_no_time.pkl',
+        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_no_time.csv',
+        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_no_time.csv',
+        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_no_time.csv',
+    params:
+        i = '{i}',
+        ablate_time = True,
+    script:
+        'scripts/bayesian_pd.py'
+
+rule bayesian_pd_no_shape:
+    input:
+        prior = '<out>/{DSET}/prior.pkl',
+        obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
+    output:
+        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_no_shape.pkl',
+        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_no_shape.csv',
+        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_no_shape.csv',
+        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_no_shape.csv',
+    params:
+        i = '{i}',
+        ablate_shape = True,
+    script:
+        'scripts/bayesian_pd.py'
+
+rule bayesian_pd_no_prior:
+    input:
+        prior = '<out>/{DSET}/prior.pkl',
+        obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
+    output:
+        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_no_prior.pkl',
+        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_no_prior.csv',
+        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_no_prior.csv',
+        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_no_prior.csv',
+    params:
+        i = '{i}',
+        ablate_time = True,
+        ablate_shape = True,
+    script:
+        'scripts/bayesian_pd.py'
+
 
 
 ### FILTERING ###

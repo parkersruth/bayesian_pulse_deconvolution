@@ -17,6 +17,12 @@ if __name__ == '__main__':
     t, y = df.t.values, df.y.values
 
     seed = int(sm.params['i'])
+
+    if sm.params.get('ablate_time', False):
+        prior['alpha_zpp'] = 1
+    if sm.params.get('ablate_shape', False):
+        prior['L_w'] = np.eye(prior['L_w'].shape[0])
+
     soln = infer.run_bayesian_pd(t, y, prior, seed)
 
     # full solution

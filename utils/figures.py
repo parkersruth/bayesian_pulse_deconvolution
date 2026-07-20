@@ -9,7 +9,7 @@ from utils.plots import *
 import seaborn as sns
 
 def cmap(name):
-    if name.startswith('Bayes'):
+    if name.startswith('Bayes') or name.endswith('priors'):
         return cp[1]
     if name.startswith('Ideal'):
         return cp[-1]
