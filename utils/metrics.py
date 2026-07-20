@@ -75,8 +75,8 @@ def get_y_snr(y_true, y_obs, y_pred):
     true_power = np.sum((y_true-y_true.mean())**2*window)
     error_power = np.sum(error**2*window)
     noise_power = np.sum(noise**2*window)
-    error_db = 10 * np.log(error_power / true_power)
-    noise_db = 10 * np.log(noise_power / true_power)
+    error_db = 10 * np.log10(error_power / true_power)
+    noise_db = 10 * np.log10(noise_power / true_power)
     loss_db = error_db - noise_db
     power_feats = (true_power, noise_power, error_power)
     db_feats = (noise_db, error_db, loss_db)
