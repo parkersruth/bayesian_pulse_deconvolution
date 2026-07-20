@@ -4,22 +4,8 @@ y:
     name: Pulse interval RMSE
     experiment: aurora_ppg
     x:
-      # - method: F_nk_T_nk
-      #   name: Neurokit2 (SP)
       - method: F_pyp_T_pyp.u
         name: PyPPG (U)
       - method: T_bpd
         name: Bayesian PD
-  # - kind: time
-  #   metric: hrv_rmssd_abs_error
-  #   # metric: hrv_sdnn_abs_error
-  #   # metric: hrv_sd2_abs_error
-  #   name: HRV RMSSD error
-  #   experiment: aurora_ppg
-  #   x:
-  #     # - method: F_none_T_pyp.u
-  #     #   name: PyPPG (U)
-  #     - method: F_pyp_T_pyp.u
-  #       name: PyPPG (U)
-  #     - method: T_bpd
-  #       name: Bayesian PD
+

@@ -8,8 +8,6 @@ y:
         name: Neurokit2 (SP)
       - method: F_pyp__F_pyp_T_pyp.u__S_avg
         name: PyPPG (U)
-      # - method: F_ideal__F_ideal_T_pyp.u__S_avg
-      #   name: Ideal Filter (U)
       - method: F_ideal__T_ideal__S_avg
         name: Ideal Filter
       - method: S_bpd
