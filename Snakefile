@@ -28,10 +28,11 @@ figs = [
     ]
 
 debugs = [
-    ('simulation_demo', '0001'),
-    ('simulation_demo', '0002'),
-    ('simulation_demo', '0003'),
+    ('simulation_demo', '0001', 'bpd'),
+    ('simulation_demo', '0002', 'bpd'),
+    ('simulation_demo', '0003', 'bpd'),
 ]
+
 
 rule all:
     input:
@@ -53,12 +54,16 @@ rule fig_trends:
     input: 'figs/fig_trends/fig_trends_df.csv'
 rule fig_ablations:
     input: 'figs/fig_ablations/fig_ablations_df.csv'
+rule fig_relaxations:
+    input: 'figs/fig_relaxations/fig_relaxations_df.csv'
     
 
 rule debug:
     input:
-        expand('<out>/{DSET}/debug/{i}_soln_bpd.pdf',
-                    DSET=[x[0] for x in debugs], i=[x[1] for x in debugs])
+        expand('<out>/{DSET}/debug/{i}_soln_{method}.pdf',
+                    DSET=[x[0] for x in debugs],
+                    i=[x[1] for x in debugs],
+                    method=[x[2] for x in debugs])
 
 ### PRIORS ###
 
@@ -161,52 +166,22 @@ rule bayesian_pd:
     script:
         'scripts/bayesian_pd.py'
 
-rule bayesian_pd_no_time:
+
+rule bayesian_pd_relax:
     input:
         prior = '<out>/{DSET}/prior.pkl',
         obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
     output:
-        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_no_time.pkl',
-        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_no_time.csv',
-        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_no_time.csv',
-        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_no_time.csv',
+        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_RT{rt}_RS{rs}.pkl',
+        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_RT{rt}_RS{rs}.csv',
+        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_RT{rt}_RS{rs}.csv',
+        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_RT{rt}_RS{rs}.csv',
     params:
         i = '{i}',
-        ablate_time = True,
+        relax_time = '{rt}',
+        relax_shape = '{rs}',
     script:
         'scripts/bayesian_pd.py'
-
-rule bayesian_pd_no_shape:
-    input:
-        prior = '<out>/{DSET}/prior.pkl',
-        obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
-    output:
-        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_no_shape.pkl',
-        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_no_shape.csv',
-        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_no_shape.csv',
-        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_no_shape.csv',
-    params:
-        i = '{i}',
-        ablate_shape = True,
-    script:
-        'scripts/bayesian_pd.py'
-
-rule bayesian_pd_no_prior:
-    input:
-        prior = '<out>/{DSET}/prior.pkl',
-        obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
-    output:
-        soln = '<out>/{DSET}/idx/{i}/{i}_soln_bpd_no_prior.pkl',
-        filt = '<out>/{DSET}/idx/{i}/filt/{i}_F_bpd_no_prior.csv',
-        time = '<out>/{DSET}/idx/{i}/time/{i}_T_bpd_no_prior.csv',
-        shape = '<out>/{DSET}/idx/{i}/shape/{i}_S_bpd_no_prior.csv',
-    params:
-        i = '{i}',
-        ablate_time = True,
-        ablate_shape = True,
-    script:
-        'scripts/bayesian_pd.py'
-
 
 
 ### FILTERING ###
@@ -372,9 +347,9 @@ rule debug_bpd:
     input:
         true = '<out>/{DSET}/idx/{i}/{i}_soln_true.pkl',
         obs = '<out>/{DSET}/idx/{i}/{i}_sig_obs.csv',
-        bpd = '<out>/{DSET}/idx/{i}/{i}_soln_bpd.pkl',
+        bpd = '<out>/{DSET}/idx/{i}/{i}_soln_{method}.pkl',
     output:
-        pdf = '<out>/{DSET}/debug/{i}_soln_bpd.pdf'
+        pdf = '<out>/{DSET}/debug/{i}_soln_{method}.pdf'
     script:
         'scripts/debug_bpd.py'
 

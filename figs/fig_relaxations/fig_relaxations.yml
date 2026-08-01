@@ -1,0 +1,143 @@
+y:
+  - kind: filt
+    experiment: simulation_base
+    metric: loss_db
+    name: "Filter noise attenuation\n(simulation)"
+    x:
+      - method: F_nk
+        name: "Neurokit"
+      - method: F_bpd
+        name: "Data-driven priors"
+      - method: F_bpd_RTA_RSX
+        name: "Relaxed time prior"
+      - method: F_bpd_RTB_RSX
+        name: "Relaxed time prior"
+      - method: F_bpd_RTC_RSX
+        name: "Relaxed time prior"
+      - method: F_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+  - kind: time
+    experiment: simulation_base
+    metric: zp_rmse
+    name: "Pulse interval RMSE\n(simulation)"
+    log: True
+    x:
+      - method: F_pyp_T_pyp.u
+        name: "PyPPG (U)"
+      - method: T_bpd
+        name: "Data-driven priors"
+      - method: T_bpd_RTA_RSX
+        name: "Relaxed time prior"
+      - method: T_bpd_RTB_RSX
+        name: "Relaxed time prior"
+      - method: T_bpd_RTC_RSX
+        name: "Relaxed time prior"
+      - method: T_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+  - kind: shape
+    experiment: simulation_base
+    metric: h_errea
+    name: "Pulse shape error\n(simulation)"
+    log: True
+    x:
+      - method: F_pyp__F_pyp_T_pyp.u__S_avg
+        name: "PyPPG (U)"
+      - method: S_bpd
+        name: "Data-driven priors"
+      - method: S_bpd_RTA_RSX
+        name: "Relaxed time prior"
+      - method: S_bpd_RTB_RSX
+        name: "Relaxed time prior"
+      - method: S_bpd_RTC_RSX
+        name: "Relaxed time prior"
+      - method: S_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+  - kind: time
+    experiment: aurora_ppg
+    metric: zp_rmse
+    name: "Pulse interval RMSE\n(human recordings)"
+    log: True
+    x:
+      - method: F_pyp_T_pyp.u
+        name: "PyPPG (U)"
+      - method: T_bpd
+        name: "Data-driven priors"
+      - method: T_bpd_RTA_RSX
+        name: "Relaxed time prior"
+      - method: T_bpd_RTB_RSX
+        name: "Relaxed time prior"
+      - method: T_bpd_RTC_RSX
+        name: "Relaxed time prior"
+      - method: T_bpd_RTZ_RSX
+        name: "Uninformative shape prior"
+  - kind: filt
+    experiment: simulation_base
+    metric: loss_db
+    name: "Filter noise attenuation\n(simulation)"
+    x:
+      - method: F_nk
+        name: "Neurokit"
+      - method: F_bpd
+        name: "Data-driven priors"
+      - method: F_bpd_RTX_RSA
+        name: "Relaxed shape prior"
+      - method: F_bpd_RTX_RSB
+        name: "Relaxed shape prior"
+      - method: F_bpd_RTX_RSC
+        name: "Relaxed shape prior"
+      - method: F_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+  - kind: time
+    experiment: simulation_base
+    metric: zp_rmse
+    name: "Pulse interval RMSE\n(simulation)"
+    log: True
+    x:
+      - method: F_pyp_T_pyp.u
+        name: "PyPPG (U)"
+      - method: T_bpd
+        name: "Data-driven priors"
+      - method: T_bpd_RTX_RSA
+        name: "Relaxed shape prior"
+      - method: T_bpd_RTX_RSB
+        name: "Relaxed shape prior"
+      - method: T_bpd_RTX_RSC
+        name: "Relaxed shape prior"
+      - method: T_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+  - kind: shape
+    experiment: simulation_base
+    metric: h_errea
+    name: "Pulse shape error\n(simulation)"
+    log: True
+    x:
+      - method: F_pyp__F_pyp_T_pyp.u__S_avg
+        name: "PyPPG (U)"
+      - method: S_bpd
+        name: "Data-driven priors"
+      - method: S_bpd_RTX_RSA
+        name: "Relaxed shape priors"
+      - method: S_bpd_RTX_RSB
+        name: "Relaxed shape prior"
+      - method: S_bpd_RTX_RSC
+        name: "Relaxed shape prior"
+      - method: S_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+  - kind: time
+    experiment: aurora_ppg
+    metric: zp_rmse
+    name: "Pulse interval RMSE\n(human recordings)"
+    log: True
+    x:
+      - method: F_pyp_T_pyp.u
+        name: "PyPPG (U)"
+      - method: T_bpd
+        name: "Data-driven priors"
+      - method: T_bpd_RTX_RSA
+        name: "Relaxed shape prior"
+      - method: T_bpd_RTX_RSB
+        name: "Relaxed shape prior"
+      - method: T_bpd_RTX_RSC
+        name: "Relaxed shape prior"
+      - method: T_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
