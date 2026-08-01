@@ -3,67 +3,62 @@ y:
     experiment: simulation_base
     metric: loss_db
     name: "Filter noise attenuation\n(simulation)"
-    # ticks: [-60, -30, 0, 30]
-    # labels: ['-60 dB', '-30 dB', '0 dB', '30 dB']
     x:
       - method: F_nk
         name: "Neurokit"
-      - method: F_bpd_no_prior
-        name: "No priors"
-      - method: F_bpd_no_time
-        name: "Shape priors"
-      - method: F_bpd_no_shape
-        name: "Time priors"
       - method: F_bpd
-        name: "All priors"
+        name: "Original priors"
+      - method: F_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+      - method: F_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+      - method: F_bpd_RTZ_RSZ
+        name: "Both uninformative"
   - kind: time
     experiment: simulation_base
     metric: zp_rmse
     name: "Pulse interval RMSE\n(simulation)"
-    # ticks: [-3, -2, -1, 0]
-    # labels: ['1 ms', '10 ms', '100 ms', '1 s']
     log: True
     x:
       - method: F_pyp_T_pyp.u
         name: "PyPPG (U)"
-      - method: T_bpd_no_prior
-        name: "No priors"
-      - method: T_bpd_no_time
-        name: "Shape priors"
-      - method: T_bpd_no_shape
-        name: "Time priors"
       - method: T_bpd
-        name: "All priors"
+        name: "Original priors"
+      - method: T_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+      - method: T_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+      - method: T_bpd_RTZ_RSZ
+        name: "Both uninformative"
   - kind: shape
     experiment: simulation_base
     metric: h_errea
     name: "Pulse shape error\n(simulation)"
+    log: True
     x:
       - method: F_pyp__F_pyp_T_pyp.u__S_avg
         name: "PyPPG (U)"
-      - method: S_bpd_no_prior
-        name: "No priors"
-      - method: S_bpd_no_time
-        name: "Shape priors"
-      - method: S_bpd_no_shape
-        name: "Time priors"
       - method: S_bpd
-        name: "All priors"
+        name: "Original priors"
+      - method: S_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+      - method: S_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+      - method: S_bpd_RTZ_RSZ
+        name: "Both uninformative"
   - kind: time
     experiment: aurora_ppg
     metric: zp_rmse
     name: "Pulse interval RMSE\n(human recordings)"
-    # ticks: [-3, -2, -1, 0]
-    # labels: ['1 ms', '10 ms', '100 ms', '1 s']
     log: True
     x:
       - method: F_pyp_T_pyp.u
         name: "PyPPG (U)"
-      - method: T_bpd_no_prior
-        name: "No priors"
-      - method: T_bpd_no_time
-        name: "Shape priors"
-      - method: T_bpd_no_shape
-        name: "Time priors"
       - method: T_bpd
-        name: "All priors"
+        name: "Original priors"
+      - method: T_bpd_RTZ_RSX
+        name: "Uninformative time prior"
+      - method: T_bpd_RTX_RSZ
+        name: "Uninformative shape prior"
+      - method: T_bpd_RTZ_RSZ
+        name: "Both uninformative"
