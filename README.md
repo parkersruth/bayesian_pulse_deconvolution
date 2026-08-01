@@ -81,18 +81,6 @@ Run the `figs/fig5/fig5_mcmc.ipynb` notebook to generate the MCMC posterior samp
 Next, generate the figure by running the `figs/fig5/fig5.ipynb` notebook.
 
 
-### Supplementary Fig. 1
-
-Generate a dataframe of simulation conditions by running `figs/fig_trends/fig_trends_make_df.ipynb`.
-
-Run the simulations:
-```
-./run.sh fig_trends
-```
-
-Generate the figure by running `figs/fig_trends/fig_trends.ipynb`.
-
-
 ## Empirical experiments
 
 Empirical experiments require access to the Aurora-BP dataset. Sample data and instructions for accessing the full dataset are available here: https://github.com/microsoft/aurorabp-sample-data/tree/main
@@ -114,6 +102,43 @@ Run the experiments:
 Generate the figure by running `figs/fig4/fig4.ipynb`.
 
 
+
+## Supplementary figures
+
+
+### Supplementary Fig. 1
+
+Generate a dataframe of simulation conditions by running `figs/fig_trends/fig_trends_make_df.ipynb`.
+
+Run the simulations:
+```
+./run.sh fig_trends
+```
+
+Generate the figure by running `figs/fig_trends/fig_trends.ipynb`.
+
+
+### Supplementary Fig. 2
+
+The covariate analysis uses the same dataframe produced for Fig. 4.
+
+Run the experiments:
+```
+./run.sh fig4
+```
+
+Generate the figure by running `figs/fig_covariates/fig_covariates.ipynb`.
+
+### Supplementary Figs. 3-5
+
+Run the experiments:
+```
+./run.sh fig_relaxations fig_ablations
+```
+
+Generate the figures by running the files `figs/fig_relaxations/fig_relaxations.ipynb`, `figs/fig_ablations/fig_ablations.ipynb`, and `figs/fig_relaxations/fig_relaxed_solns.ipynb`.
+
+
 ### Re-generate data-driven priors
 
 Parameters of data-driven priors are stored in the `prior_params` directory.
@@ -126,4 +151,6 @@ To re-generate pulse shape priors, run `notebooks/aurora_prior_h.ipynb`.
 ## Citing This Work
 
 This work is currently in submission. For now, please cite our preprint.
+
+> Ruth, Parker S., Tommy DeBenedetti, Lily O’Brien, James A. Landay, Todd Coleman, and Emily B. Fox. “Vascular Waveform Analysis Using Bayesian Pulse Deconvolution.” Preprint, bioRxiv, February 11, 2026. https://doi.org/10.64898/2026.02.09.699383.
 
