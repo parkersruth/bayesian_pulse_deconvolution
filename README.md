@@ -1,10 +1,8 @@
 
 This repository contains the code required to replicate the results from the following publication.
 
-> Vascular waveform analysis using Bayesian pulse deconvolution
-> 
-> Parker S. Ruth, Tommy DeBenedetti, Lily O'Brien, James A. Landay, Todd P. Coleman, & Emily B. Fox
-> 
+> P. S. Ruth, T. DeBenedetti, L. O’Brien, J. A. Landay, T. P. Coleman, and E. B. Fox, “Vascular waveform analysis using Bayesian pulse deconvolution,” npj Digit. Med., Sep. 2026, doi: [10.1038/s41746-026-03213-0](https://doi.org/10.1038/s41746-026-03213-0).
+
 
 This code has been tested on MacOS.
 
@@ -150,7 +148,7 @@ To re-generate pulse shape priors, run `notebooks/aurora_prior_h.ipynb`.
 
 ## Citing This Work
 
-This work is currently in submission. For now, please cite our preprint.
+Please cite the following paper:
 
-> Ruth, Parker S., Tommy DeBenedetti, Lily O’Brien, James A. Landay, Todd Coleman, and Emily B. Fox. “Vascular Waveform Analysis Using Bayesian Pulse Deconvolution.” Preprint, bioRxiv, February 11, 2026. https://doi.org/10.64898/2026.02.09.699383.
+> P. S. Ruth, T. DeBenedetti, L. O’Brien, J. A. Landay, T. P. Coleman, and E. B. Fox, “Vascular waveform analysis using Bayesian pulse deconvolution,” npj Digit. Med., Sep. 2026, doi: [10.1038/s41746-026-03213-0](https://doi.org/10.1038/s41746-026-03213-0).
 
